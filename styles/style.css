@@ -140,8 +140,14 @@ body {
 }
 
 .dial-left {
-  flex: 24;
   background-color: transparent;
+}
+
+.dial-big .dial-left {
+  flex: 26;
+}
+.dial-small .dial-left {
+  flex: 32;
 }
 
 .dial-right {
