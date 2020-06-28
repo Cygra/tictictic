@@ -1,0 +1,150 @@
+body {
+  height: 100vh;
+  margin: 0;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  width: 480px;
+  height: 480px;
+  background-color: black;
+  border-radius: 240px;
+  position: relative;
+}
+
+.cascade-container {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hand-left,
+.hand-right {
+  flex: 1;
+}
+
+.hand-right,
+.dot {
+  background-color: white;
+}
+
+.hour-hand,
+.minute-hand,
+.second-hand {
+  display: flex;
+  align-items: stretch;
+}
+
+.hour-hand {
+  width: 270px;
+  height: 12px;
+}
+
+.minute-hand {
+  width: 360px;
+  height: 8px;
+}
+
+.second-hand {
+  width: 440px;
+  height: 4px;
+}
+
+.dot {
+  width: 20px;
+  height: 20px;
+  border-radius: 10px;
+}
+
+.dial-group-1 {
+  transform: rotate(30deg);
+}
+
+.dial-group-2 {
+  transform: rotate(60deg);
+}
+
+.dial-group-3 {
+  transform: rotate(90deg);
+}
+
+.dial-group-4 {
+  transform: rotate(120deg);
+}
+
+.dial-group-5 {
+  transform: rotate(150deg);
+}
+
+.dial-group-6 {
+  transform: rotate(180deg);
+}
+
+.dial-group-7 {
+  transform: rotate(210deg);
+}
+
+.dial-group-8 {
+  transform: rotate(240deg);
+}
+
+.dial-group-9 {
+  transform: rotate(270deg);
+}
+
+.dial-group-10 {
+  transform: rotate(300deg);
+}
+
+.dial-group-11 {
+  transform: rotate(330deg);
+}
+
+.dial-big,
+.dial-small {
+  width: 480px;
+  display: flex;
+  align-items: stretch;
+}
+
+.dial-big {
+  height: 4px;
+}
+
+.dial-small {
+  height: 2px;
+}
+
+.dial-small-1 {
+  transform: rotate(6deg);
+}
+
+.dial-small-2 {
+  transform: rotate(12deg);
+}
+
+.dial-small-3 {
+  transform: rotate(18deg);
+}
+
+.dial-small-4 {
+  transform: rotate(24deg);
+}
+
+.dial-left {
+  flex: 24;
+  background-color: transparent;
+}
+
+.dial-right {
+  flex: 1;
+  background-color: white;
+}
