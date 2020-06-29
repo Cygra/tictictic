@@ -26,12 +26,12 @@ body {
   justify-content: center;
 }
 
-.hand-left,
-.hand-right {
+.hand-up,
+.hand-down {
   flex: 1;
 }
 
-.hand-right,
+.hand-up,
 .dot {
   background-color: white;
 }
@@ -40,22 +40,23 @@ body {
 .minute-hand,
 .second-hand {
   display: flex;
+  flex-direction: column;
   align-items: stretch;
 }
 
 .hour-hand {
-  width: 270px;
-  height: 12px;
+  height: 270px;
+  width: 12px;
 }
 
 .minute-hand {
-  width: 360px;
-  height: 8px;
+  height: 360px;
+  width: 8px;
 }
 
 .second-hand {
-  width: 440px;
-  height: 4px;
+  height: 440px;
+  width: 4px;
 }
 
 .dot {
