@@ -19,6 +19,8 @@ var didMount = ($secondHand, $minuteHand, $hourHand) => {
   var hour = current.getHours();
   var secondOffset = second + ANIM_DURATION / 1000;
 
+  if (hour > 18 || hour < 7) $("body").attr("class", "dark");
+
   var secondHandInitPos = secondOffset * 6;
   var minuteHandInitPos = minute * 6 + secondOffset / 10;
   var hourHandInitPos = (hour % 12) * 30 + minute / 2 + secondOffset / 120;
@@ -46,9 +48,9 @@ var didMount = ($secondHand, $minuteHand, $hourHand) => {
 };
 
 $(document).ready(() => {
-  var $secondHand = $($(".second-hand")[0]);
-  var $minuteHand = $($(".minute-hand")[0]);
-  var $hourHand = $($(".hour-hand")[0]);
+  var $secondHand = $(".second-hand");
+  var $minuteHand = $(".minute-hand");
+  var $hourHand = $(".hour-hand");
 
   didMount($secondHand, $minuteHand, $hourHand);
 

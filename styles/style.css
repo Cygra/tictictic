@@ -7,6 +7,10 @@ body {
   justify-content: center;
 }
 
+.dark {
+  background-color: black;
+}
+
 .container {
   width: 70vh;
   height: 70vh;
@@ -34,6 +38,12 @@ body {
 .hand-up,
 .dot {
   background-color: white;
+}
+
+.dark .hand-up,
+.dark .dot,
+.dark .dial-right {
+  background-color: #58bf75;
 }
 
 .hour-hand,
