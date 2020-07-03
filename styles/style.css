@@ -8,10 +8,10 @@ body {
 }
 
 .container {
-  width: 480px;
-  height: 480px;
+  width: 70vh;
+  height: 70vh;
   background-color: black;
-  border-radius: 240px;
+  border-radius: 35vh;
   position: relative;
 }
 
@@ -45,24 +45,24 @@ body {
 }
 
 .hour-hand {
-  height: 270px;
-  width: 12px;
+  height: 42vh;
+  width: 1.75vh;
 }
 
 .minute-hand {
-  height: 360px;
-  width: 8px;
+  height: 54.44vh;
+  width: 1.4vh;
 }
 
 .second-hand {
-  height: 440px;
-  width: 4px;
+  height: 63vh;
+  width: 0.7vh;
 }
 
 .dot {
-  width: 20px;
-  height: 20px;
-  border-radius: 10px;
+  width: 1.75vh;
+  height: 1.75vh;
+  border-radius: 0.875vh;
 }
 
 .dial-group-1 {
@@ -111,17 +111,17 @@ body {
 
 .dial-big,
 .dial-small {
-  width: 480px;
+  width: 100%;
   display: flex;
   align-items: stretch;
 }
 
 .dial-big {
-  height: 4px;
+  height: 1.5%;
 }
 
 .dial-small {
-  height: 2px;
+  height: 1%;
 }
 
 .dial-small-1 {
