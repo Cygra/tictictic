@@ -1,25 +1,33 @@
-const ANIM_DURATION = 1500;
+const ANIM_DURATION = 1500,
+  FRAME = 16,
+  $secondHand = document.getElementsByClassName("second-hand")[0],
+  $minuteHand = document.getElementsByClassName("minute-hand")[0],
+  $hourHand = document.getElementsByClassName("hour-hand")[0],
+  $body = document.getElementsByTagName("body")[0];
+
 let secondHandInterval, minuteHandInterval, hourHandInterval;
 
-const rotateTo = ($e) => (deg) => {
-  $e.css({ transform: "rotate(" + deg + "deg)" });
+const rotateTo = ($e, deg) => ($e.style.transform = "rotate(" + deg + "deg)");
+
+const animate = (finalPosition, $e) => {
+  var currentPostion = 0,
+    step = finalPosition / (ANIM_DURATION / FRAME),
+    interval = setInterval(() => {
+      if ((currentPostion += step) >= finalPosition) {
+        rotateTo($e, finalPosition);
+        clearInterval(interval);
+      } else rotateTo($e, currentPostion);
+    }, FRAME);
 };
 
-const animate = (finalPosition, $elem) => {
-  $({ deg: 0 }).animate(
-    { deg: finalPosition },
-    { duration: ANIM_DURATION, step: rotateTo($elem) }
-  );
-};
-
-var didMount = ($secondHand, $minuteHand, $hourHand) => {
+const didMount = () => {
   var current = new Date();
   var second = current.getSeconds();
   var minute = current.getMinutes();
   var hour = current.getHours();
   var secondOffset = second + ANIM_DURATION / 1000;
 
-  if (hour > 18 || hour < 7) $("body").attr("class", "dark");
+  if (hour > 18 || hour < 7) $body.setAttribute("class", "dark");
 
   var secondHandInitPos = secondOffset * 6;
   var minuteHandInitPos = minute * 6 + secondOffset / 10;
@@ -31,34 +39,28 @@ var didMount = ($secondHand, $minuteHand, $hourHand) => {
 
   setTimeout(() => {
     secondHandInterval = setInterval(
-      () => rotateTo($secondHand)((secondHandInitPos += 1.2)),
+      () => rotateTo($secondHand, (secondHandInitPos += 1.2)),
       200
     );
 
     minuteHandInterval = setInterval(
-      () => rotateTo($minuteHand)((minuteHandInitPos += 0.05)),
+      () => rotateTo($minuteHand, (minuteHandInitPos += 0.05)),
       500
     );
 
     hourHandInterval = setInterval(
-      () => rotateTo($hourHand)((hourHandInitPos += 0.01)),
+      () => rotateTo($hourHand, (hourHandInitPos += 0.01)),
       1200
     );
   }, ANIM_DURATION);
 };
 
-$(document).ready(() => {
-  var $secondHand = $(".second-hand");
-  var $minuteHand = $(".minute-hand");
-  var $hourHand = $(".hour-hand");
+didMount();
 
-  didMount($secondHand, $minuteHand, $hourHand);
-
-  document.addEventListener("visibilitychange", () => {
-    if (document.visibilityState === "hidden") {
-      clearInterval(secondHandInterval);
-      clearInterval(minuteHandInterval);
-      clearInterval(hourHandInterval);
-    } else didMount($secondHand, $minuteHand, $hourHand);
-  });
+document.addEventListener("visibilitychange", () => {
+  if (document.visibilityState === "hidden") {
+    clearInterval(secondHandInterval);
+    clearInterval(minuteHandInterval);
+    clearInterval(hourHandInterval);
+  } else didMount();
 });
